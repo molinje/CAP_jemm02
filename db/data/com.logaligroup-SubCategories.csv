@@ -1,0 +1,21 @@
+ID,subCategory,category_ID
+0aa3d042-d5b7-4aee-8f57-edd5b4e8637d,Laptops,a52084f5-101a-4400-80af-afc94cfec55e
+71e6308a-9069-423e-b4fd-72a26c191508,Desktops,a52084f5-101a-4400-80af-afc94cfec55e
+c2106e2e-3107-489f-8037-c2e22580f8dd,Workstations,a52084f5-101a-4400-80af-afc94cfec55e
+50e6bdf4-d43e-4389-a038-bfdcdbc4f809,Mini PCs,a52084f5-101a-4400-80af-afc94cfec55e
+8ef51b71-eb23-473f-96c2-753ba91a6ef4,Keyboards,00614de6-3cca-4fba-bb06-dfd2fcddfea8
+72d42ce9-52c4-4e69-8c7a-b9cf73df014b,Mice,00614de6-3cca-4fba-bb06-dfd2fcddfea8
+a45ea4e4-3a8e-492e-9fbb-942912d4e438,Monitors,00614de6-3cca-4fba-bb06-dfd2fcddfea8
+1edf4fa4-d171-46ac-a6ce-e987c23408b5,Printers,00614de6-3cca-4fba-bb06-dfd2fcddfea8
+9cc2400b-52c8-4f4e-a1cf-1bc0675e1504,Routers,6d21231f-d3da-4cfc-afc4-fe691d5a4227
+3a906669-8d58-4fa7-ab7d-2d3fdc14ef6b,Switches,6d21231f-d3da-4cfc-afc4-fe691d5a4227
+dbf64766-9c87-4e99-9d52-5fe865b22aa5,Access Points,6d21231f-d3da-4cfc-afc4-fe691d5a4227
+e9737ff8-d8c9-4506-8c01-9ac637f2b371,Modems,6d21231f-d3da-4cfc-afc4-fe691d5a4227
+6845e894-7052-4f6f-9ab6-cb0786cd5347,External HDD,e748a585-cea2-4c53-b355-a55de730cef3
+808de548-9b1b-47d5-8812-c321aa60f6d4,SSD,e748a585-cea2-4c53-b355-a55de730cef3
+7f313b66-061f-4dfa-b2b1-901223663aaa,USB Flash,e748a585-cea2-4c53-b355-a55de730cef3
+e95c56e5-5a9e-41d3-a152-b0f1cda5b627,NAS,e748a585-cea2-4c53-b355-a55de730cef3
+6712b508-2004-4daa-8d63-8b1a4fb6c5ef,Operating Systems,e48f64dd-425b-449d-89a4-141145929961
+07be1d23-01a7-4de0-9329-247a4864d294,Office Suites,e48f64dd-425b-449d-89a4-141145929961
+7d8dc8f4-f2d8-4bb5-827a-080fd77d85ca,Antivirus,e48f64dd-425b-449d-89a4-141145929961
+f54cf41e-d854-4ff3-8b48-d54d751e7f0a,Development Tools,e48f64dd-425b-449d-89a4-141145929961
