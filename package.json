@@ -7,14 +7,12 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^9",
-    "express": "^4"
-  },
-  "engines": {
-    "node": ">=20"
+    "express": "^4.21.2"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2",
-    "@cap-js/cds-types": "^0.11.0"
+    "@cap-js/cds-types": "^0.11.0",
+    "@cap-js/sqlite": "^2.0.2"
+    
   },
   "scripts": {
     "start": "cds-serve"
