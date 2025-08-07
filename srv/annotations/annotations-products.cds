@@ -2,7 +2,15 @@ using {LogaliGroup as service} from '../service';
 using from './annotations-suppliers';
 using from './annotations-productdetails.cds';
 using from './annotations-reviews';
+using from './annotations-inventories.cds';
+using from './annotations-sales';
 
+// Activar Draft para la entidad Products
+// Esto permite que se pueda crear un borrador de un producto, y luego se pueda publicar
+annotate service.Products with @odata.draft.enabled;
+
+
+// Anotaciones para la entidad Products
 annotate service.Products with {
     product     @title            : 'Product';
     productName @title            : 'Product Name';
@@ -11,10 +19,12 @@ annotate service.Products with {
     statu       @title            : 'Statu';
     rating      @title            : 'Rating';
     supplier    @title            : 'Supplier';
-    price       @title: 'Price'  @Measures.ISOCurrency: currency;
+    price       @title            : 'Price'  @Measures.ISOCurrency: currency;
+    image       @title            : 'Image';
     currency    @Common.IsCurrency: true;
 };
 
+// Anotaciones para los campos de la entidad Products
 annotate service.Products with {
 
     statu       @Common: {
@@ -55,7 +65,7 @@ annotate service.Products with {
                 {
                     $Type            : 'Common.ValueListParameterOut',
                     LocalDataProperty: subCategory_ID,
-                    ValueListProperty: 'ID'
+                    ValueListProperty: 'ID',
                 }
             ]
         }
@@ -118,6 +128,12 @@ annotate service.Products with @(
     ],
 
     UI.LineItem                       : [
+
+        {
+            $Type: 'UI.DataField',
+            Value: image,
+          
+        },
         {
             $Type: 'UI.DataField',
             Value: product,
@@ -159,7 +175,7 @@ annotate service.Products with @(
         },
         {
             $Type                : 'UI.DataFieldForAnnotation',
-            Target               : '@UI.DataPoint',
+            Target               : '@UI.DataPoint#Variant1',
             ![@HTML5.CssDefaults]: {
                 $Type: 'HTML5.CssDefaultsType',
                 width: '10rem',
@@ -172,12 +188,19 @@ annotate service.Products with @(
 
     ],
 
-    UI.DataPoint                      : {
+    UI.DataPoint #Variant1            : {
         $Type        : 'UI.DataPointType',
         Visualization: #Rating,
         Value        : rating
     },
-
+    UI.FieldGroup #Image: {
+        $Type: 'UI.FieldGroupType',
+        Data : [{
+            $Type: 'UI.DataField',
+            Value: image,
+            Label: ''
+        }]
+    },
     // Grupos de campos para ubicar en el header de la pagina del Objeto o del item al cual Navegamos
 
     UI.FieldGroup #SupplierAndCategory: {
@@ -207,21 +230,21 @@ annotate service.Products with @(
         }]
     },
 
-      UI.FieldGroup #Statu              : {
+    UI.FieldGroup #Statu              : {
         $Type: 'UI.FieldGroupType',
         Data : [{
-            $Type                  : 'UI.DataField',
-            Value                  : statu_code,
-            Criticality            : statu.criticality,
-            Label                  : '',
-          /*  ![@Common.FieldControl]: {$edmJson: {$If: [
-                {$Eq: [
-                    {$Path: 'IsActiveEntity'},
-                    false
-                ]},
-                1,
-                3
-            ]}} */
+            $Type      : 'UI.DataField',
+            Value      : statu_code,
+            Criticality: statu.criticality,
+            Label      : '',
+        /*  ![@Common.FieldControl]: {$edmJson: {$If: [
+              {$Eq: [
+                  {$Path: 'IsActiveEntity'},
+                  false
+              ]},
+              1,
+              3
+          ]}} */
         }]
     },
     UI.FieldGroup #Price              : {
@@ -235,8 +258,13 @@ annotate service.Products with @(
 
     UI.HeaderFacets                   : [
 
-        // aqui se asocian los FieldGroup anteriormente creados para mostrarlos como facetas  
-        // en el Headerinfo de la pagina del objeto al que se navego 
+        // aqui se asocian los FieldGroup anteriormente creados para mostrarlos como facetas
+        // en el Headerinfo de la pagina del objeto al que se navego
+         {
+            $Type : 'UI.ReferenceFacet',
+            Target: '@UI.FieldGroup#Image',
+            ID    : 'Image'
+        },
         {
             $Type : 'UI.ReferenceFacet',
             Target: '@UI.FieldGroup#SupplierAndCategory',
@@ -250,7 +278,7 @@ annotate service.Products with @(
             Label : 'Product Description'
         },
 
-         {
+        {
             $Type : 'UI.ReferenceFacet',
             Target: '@UI.FieldGroup#Statu',
             ID    : 'ProductStatu',
@@ -265,7 +293,7 @@ annotate service.Products with @(
 
     ],
 
-     UI.Facets                         : [
+    UI.Facets                         : [
         {
             $Type : 'UI.CollectionFacet',
             Facets: [
@@ -291,17 +319,28 @@ annotate service.Products with @(
             ID    : 'ProductInformation'
         },
 
-         {
+        {
             $Type : 'UI.ReferenceFacet',
             Target: 'toReviews/@UI.LineItem',
             Label : 'Reviews',
             ID    : 'Reviews'
         },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target: 'toInventories/@UI.LineItem',
+            Label : 'Inventory Information',
+            ID    : 'toInventories'
+        },
 
-       
-      
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target: 'toSales/@UI.Chart',
+            Label : 'Sales',
+            ID    : 'toSales'
+        }
+
+
     ]
-
 
 
 );

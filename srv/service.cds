@@ -8,6 +8,7 @@ service LogaliGroup {
     entity Contacts         as projection on entities.Contacts;
     entity Reviews          as projection on entities.Reviews;
     entity Sales            as projection on entities.Sales;
+    entity Inventories      as projection on entities.Inventories;
 
      /**Code List */
     entity Status           as projection on entities.Status;
