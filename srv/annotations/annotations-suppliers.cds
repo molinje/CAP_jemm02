@@ -3,11 +3,13 @@ using from './annotations-contacts';
 
 annotate service.Suppliers with {
     //Annotation para utilizar en la ayuda de busqueda del campo Supplier, en los filtros del reporte
+   
     @title: 'Suppliers'
     ID            @Common: {
         Text           : supplierName,
         TextArrangement: #TextOnly
     };
+     // con @Common.FieldControl: #ReadOnly bloqueamos el campo para que no se pueda editar desde la vista de detalle
     supplier      @title : 'Supplier'       @Common.FieldControl: #ReadOnly;
     supplierName  @title : 'Supplier Name'  @Common.FieldControl: #ReadOnly;
     webAddress    @title : 'Web Address'    @Common.FieldControl: #ReadOnly;

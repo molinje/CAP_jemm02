@@ -2,6 +2,7 @@ using {LogaliGroup as service} from '../service';
 
 
 /* Label para los campos de la entidad contacto*/
+// con @Common.FieldControl: #ReadOnly bloqueamos el campo para que no se pueda editar desde la vista de detalle
 annotate service.Contacts with {
     fullName     @title: 'Full Name'     @Common.FieldControl: #ReadOnly;
     email        @title: 'Email'         @Common.FieldControl: #ReadOnly;

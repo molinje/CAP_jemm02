@@ -14,12 +14,13 @@ annotate service.Products with @odata.draft.enabled;
 annotate service.Products with {
     product     @title            : 'Product';
     productName @title            : 'Product Name';
+    description  @title           : 'Description'  @UI.MultiLineText;
     category    @title            : 'Category';
     subCategory @title            : 'Subcategory';
     statu       @title            : 'Statu';
     rating      @title            : 'Rating';
     supplier    @title            : 'Supplier';
-    price       @title            : 'Price'  @Measures.ISOCurrency: currency;
+    price       @title: 'Price'  @Measures.ISOCurrency: currency_code;
     image       @title            : 'Image';
     currency    @Common.IsCurrency: true;
 };
@@ -91,6 +92,16 @@ annotate service.Products with {
 
 annotate service.Products with @(
 
+    // Anotaciones para el manejo de la entidad Products
+    // Common.SideEffectsType nos sirve para definir los efectos secundarios de una entidad
+    // en este caso, cuando se actualiza el campo supplier_ID, se actualiza la entidad supplier
+    // y se actualiza el campo supplier_ID en la entidad Products
+    Common.SideEffects                : {
+        $Type           : 'Common.SideEffectsType',
+        SourceProperties: [supplier_ID],
+        TargetEntities  : [supplier],
+    },
+
     // Cabecera del Listado
     UI.HeaderInfo                     : {
         $Type         : 'UI.HeaderInfoType',
@@ -132,7 +143,7 @@ annotate service.Products with @(
         {
             $Type: 'UI.DataField',
             Value: image,
-          
+
         },
         {
             $Type: 'UI.DataField',
@@ -193,7 +204,7 @@ annotate service.Products with @(
         Visualization: #Rating,
         Value        : rating
     },
-    UI.FieldGroup #Image: {
+    UI.FieldGroup #Image              : {
         $Type: 'UI.FieldGroupType',
         Data : [{
             $Type: 'UI.DataField',
@@ -221,12 +232,20 @@ annotate service.Products with @(
             }
         ]
     },
-
+//  Ejemplo de efecto secundario sobre un campo que esta en un FieldGroup.
     UI.FieldGroup #ProductDescription : {
         $Type: 'UI.FieldGroupType',
         Data : [{
-            $Type: 'UI.DataField',
-            Value: description
+            $Type                  : 'UI.DataField',
+            Value                  : description,
+           /* ![@Common.FieldControl]: {$edmJson: {$If: [
+                {$Eq: [
+                    {$Path: 'IsActiveEntity'},
+                    false
+                ]},
+                1,
+                3
+            ]}},*/
         }]
     },
 
@@ -237,14 +256,14 @@ annotate service.Products with @(
             Value      : statu_code,
             Criticality: statu.criticality,
             Label      : '',
-        /*  ![@Common.FieldControl]: {$edmJson: {$If: [
+          ![@Common.FieldControl]: {$edmJson: {$If: [
               {$Eq: [
                   {$Path: 'IsActiveEntity'},
                   false
               ]},
               1,
               3
-          ]}} */
+          ]}} 
         }]
     },
     UI.FieldGroup #Price              : {
@@ -260,7 +279,7 @@ annotate service.Products with @(
 
         // aqui se asocian los FieldGroup anteriormente creados para mostrarlos como facetas
         // en el Headerinfo de la pagina del objeto al que se navego
-         {
+        {
             $Type : 'UI.ReferenceFacet',
             Target: '@UI.FieldGroup#Image',
             ID    : 'Image'
