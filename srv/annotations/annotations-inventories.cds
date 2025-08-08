@@ -65,14 +65,14 @@ annotate service.Inventories with @(
             $Type: 'UI.DataField',
             Value: quantity
         },
-    /*
-    {
-        $Type : 'UI.DataFieldForAction',
-        Action : 'LogaliGroup.setStock',
-        Label : 'Set Stock',
-        Inline : true
-    }
-    */
+        // Action para adicionar o restar inventario, Crea un boton en la vista
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action: 'LogaliGroup.setStock',
+            Label : 'Set Stock',
+            Inline: true
+        }
+
     ],
 
     UI.DataPoint      : {
@@ -98,7 +98,7 @@ annotate service.Inventories with @(
             Measure  : target
         }]
     },
-  UI.FieldGroup     : {
+    UI.FieldGroup     : {
         $Type: 'UI.FieldGroupType',
         Data : [
             {

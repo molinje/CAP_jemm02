@@ -35,7 +35,7 @@ entity Products : cuid, managed {
 
 };
 
-type decimal : Decimal(5, 3);
+type decimal : Decimal(6, 3);
 
 entity ProductDetails : cuid {
     baseUnit   : String default 'EA';
@@ -97,6 +97,14 @@ entity Status : CodeList {
         };
         criticality : Integer;
 };
+
+//Entidad para opciones de la accion setStock
+entity Options : CodeList {
+    key code : String(10) enum {
+        A = 'Add';
+        D = 'Discount';
+    }
+}
 
 /** Value Helps */
 
