@@ -1,0 +1,21 @@
+code,symbol,minorUnit,name,descr
+USD,$,2,United States Dollar,Official currency of the United States
+EUR,€,2,Euro,Official currency of the Eurozone
+JPY,¥,0,Japanese Yen,Official currency of Japan
+GBP,£,2,Pound Sterling,Official currency of the United Kingdom
+AUD,$,2,Australian Dollar,Official currency of Australia
+CAD,$,2,Canadian Dollar,Official currency of Canada
+CHF,Fr,2,Swiss Franc,Official currency of Switzerland
+CNY,¥,2,Chinese Yuan,Official currency of China
+SEK,kr,2,Swedish Krona,Official currency of Sweden
+NZD,$,2,New Zealand Dollar,Official currency of New Zealand
+MXN,$,2,Mexican Peso,Official currency of Mexico
+SGD,$,2,Singapore Dollar,Official currency of Singapore
+HKD,$,2,Hong Kong Dollar,Official currency of Hong Kong
+NOK,kr,2,Norwegian Krone,Official currency of Norway
+KRW,₩,0,South Korean Won,Official currency of South Korea
+TRY,₺,2,Turkish Lira,Official currency of Turkey
+RUB,₽,2,Russian Ruble,Official currency of Russia
+INR,₹,2,Indian Rupee,Official currency of India
+BRL,R$,2,Brazilian Real,Official currency of Brazil
+ZAR,R,2,South African Rand,Official currency of South Africa

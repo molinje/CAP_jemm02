@@ -3,7 +3,10 @@ namespace com.logaligroup;
 using {
     cuid,
     managed,
-    sap.common.CodeList
+    sap.common.CodeList,
+    sap.common.Languages,
+    sap.common.Currencies,
+
 } from '@sap/cds/common';
 
 entity Products : cuid, managed {
@@ -17,8 +20,11 @@ entity Products : cuid, managed {
     statu         : Association to Status; //statu --- statu_code
     rating        : Decimal(3, 2);
     price         : Decimal(8, 2);
-    currency      : String;
-    detail        : Association to ProductDetails;
+    //currency      : String;
+    currency      : Association to Currencies; //currency --- currency_code
+    // con Composition puedo editar la entidad ProductDetails desde Products
+    // con Association no puedo editar ProductDetails desde Products  
+    detail        :  Composition of  ProductDetails; // Deep insert de Products con ProductDetails
     supplier      : Association to Suppliers;
     toReviews     : Association to many Reviews
                         on toReviews.product = $self;
@@ -69,7 +75,7 @@ entity Inventories : cuid {
     min         : Integer default 0;
     max         : Integer default 500;
     target      : Integer;
-    quantity    : Decimal(8, 2);
+    quantity    : Decimal(6, 3);
     baseUnit    : String default 'EA';
     product     : Association to Products;
 };

@@ -11,11 +11,20 @@ annotate service.Inventories with {
 };
 
 /* Anotación para que en el departamento se muestre el nombre
-del departamento y no el ID */
+del departamento y no el ID  y para colocar ayuda de Busqueda*/
 annotate service.Inventories with {
     department @Common: {
         Text           : department.department,
-        TextArrangement: #TextOnly
+        TextArrangement: #TextOnly,
+        ValueList      : {
+            $Type         : 'Common.ValueListType',
+            CollectionPath: 'VH_Departments',
+            Parameters    : [{
+                $Type            : 'Common.ValueListParameterInOut',
+                LocalDataProperty: department_ID,
+                ValueListProperty: 'ID'
+            }]
+        }
     }
 };
 

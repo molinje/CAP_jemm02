@@ -1,4 +1,4 @@
-ID,product,productName,description,category_ID,subCategory_ID,statu_code,rating,price,currency,detail_ID,supplier_ID
+ID,product,productName,description,category_ID,subCategory_ID,statu_code,rating,price,currency_code,detail_ID,supplier_ID
 21f78051-061f-4cc4-ad32-62c58311b70d,P000001,Routers Model A,High-quality Routers for professional use.,6d21231f-d3da-4cfc-afc4-fe691d5a4227,9cc2400b-52c8-4f4e-a1cf-1bc0675e1504,InStock,4.83,94.01,USD,0aaa1f43-8ba8-44a5-987e-9144404bec07,b7fa16c8-8d26-4b9b-9e8d-0d3d23ef5d4a
 6c0eb077-f6d4-4b58-8370-9430cfc32ade,P000002,Monitors Model B,High-quality Monitors for professional use.,00614de6-3cca-4fba-bb06-dfd2fcddfea8,a45ea4e4-3a8e-492e-9fbb-942912d4e438,OutOfStock,4.0,1288.75,USD,2b4b01bc-a074-4e47-b241-e751d3255d00,ac978be1-18f3-4787-90d4-f181b7e99d2b
 17099629-5434-4676-b81d-c448ce221b73,P000003,Laptops Model C,High-quality Laptops for professional use.,a52084f5-101a-4400-80af-afc94cfec55e,0aa3d042-d5b7-4aee-8f57-edd5b4e8637d,OutOfStock,3.45,558.55,USD,61719c57-c05c-492f-bd86-8d3dc47c10ba,b7fa16c8-8d26-4b9b-9e8d-0d3d23ef5d4a
