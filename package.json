@@ -2,7 +2,7 @@
   "name": "cap_jemm01",
   "version": "1.0.0",
   "description": "A simple CAP project.",
-  "repository": "https://github.com/molinje/CAP_jemm02.git",
+  "repository": "https://github.com/molinje/CAPjemmFinal.git",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
